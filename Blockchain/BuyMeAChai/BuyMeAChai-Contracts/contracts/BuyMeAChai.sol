@@ -61,13 +61,13 @@ contract BuyMeAChai {
      * @dev send the entire balance stored in this contact to the owner
      */
     function withdrawTips() public {
-
+        require(owner.send(address(this).balance));
     }
 
     /**
      * @dev retrrieve all the memos stored on the blockchain
      */
-    function getMemos() public {
-
+    function getMemos() public view returns(Memo[] memory) { 
+        return memos;
     }
 }
